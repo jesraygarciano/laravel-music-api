@@ -22,10 +22,9 @@ use App\Http\Resources\SongsCollection;
 
 Route::get('/songs/{song}', function(Song $song) {
     return (new SongResource(Song::find(1)))->additional([
-        'meta' => {
-            'anything' = 'Some Value'
-        }
-
+        'meta' => [
+            'anything' => 'Some Value'
+        ]
     ]);
 });
 
