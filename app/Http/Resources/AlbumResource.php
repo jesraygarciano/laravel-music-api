@@ -16,6 +16,8 @@ class AlbumResource extends JsonResource
     {
         return [
             'title' => $this->title
-        ];
+        // 'songs' => SongResource::collection($this->whenLoaded($this->songs)),
+        // this->mergeWhen($this->songs->count > 10, ['new_attribute' => 'attribute value'])
+        // ];
     }
 }

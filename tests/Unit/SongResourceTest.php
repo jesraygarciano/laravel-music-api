@@ -21,6 +21,7 @@ class SongResourceTest extends TestCase
         $resource = (new SongResource($song = factory('App\Song')->make()))->jsonSerialize();
         $this->assertArraySubset([
             'title' => $song->title,
+            'rating' => $song->rating
         ], $resource);
     }
 
@@ -36,7 +37,6 @@ class SongResourceTest extends TestCase
     {
         $album1 = factory('App\Album')->make(['id' => 1]);
         $album2 = factory('App\Album')->make(['id' => 2]);
-
 
         $album1->songs()->saveMany(factory('App\Song', 11)->make());
         $album2->songs()->saveMany(factory('App\Song', 7)->make());
