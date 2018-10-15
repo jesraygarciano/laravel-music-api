@@ -29,5 +29,10 @@ Route::get('/songs/{song}', function(Song $song) {
 });
 
 Route::get('/songs', function() {
-    return new SongsCollection(Song::all());
+    // return new SongsCollection(Song::all());
+    return new SongsCollection(Song::with('album')->get());
 });
+
+// \DB::listen(function($query) {
+//     var_dump($query->sql);
+// });

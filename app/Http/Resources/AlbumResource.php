@@ -14,7 +14,8 @@ class AlbumResource extends JsonResource
      */
     public function toArray($request)
     {
-        // return parent::toArray($request);
-        'title' => $this->title
+        return [
+            'title' => $this->title
+        ];
     }
 }
