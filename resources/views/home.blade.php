@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+                    
+                    Demo here: https://scotch.io/tutorials/laravel-eloquent-api-resources
                 </div>
             </div>
         </div>
