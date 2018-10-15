@@ -24,5 +24,5 @@ Route::get('/songs/{song}', function(Song $song) {
 });
 
 Route::get('/songs', function() {
-    return new SongResource(Song::all());
+    return SongResource::collection(Song::all());
 });
