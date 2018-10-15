@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Song;
 use App\Http\Resources\SongResource;
+use App\Http\Resources\SongsCollection;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,14 @@ use App\Http\Resources\SongResource;
 // });
 
 Route::get('/songs/{song}', function(Song $song) {
-    return new SongResource($song);
+    return (new SongResource(Song::find(1)))->additional([
+        'meta' => {
+            'anything' = 'Some Value'
+        }
+
+    ]);
 });
 
 Route::get('/songs', function() {
-    return SongResource::collection(Song::all());
+    return new SongsCollection(Song::all());
 });
